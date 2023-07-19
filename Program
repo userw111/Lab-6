@@ -7,6 +7,24 @@ def encode(password):
     return encoded_password
 
 
+#To decode, simply shift the digits back 3 numbers.
+def decode(encoded_password):
+    #Create the empty password to add on to
+    decoded_password = ''
+    
+    #force the input to become a string
+    string_encoded_password = str(encoded_password)
+    
+    for element in string_encoded_password:
+        #force each string number of the encoded_password to be an integer type.
+        #Then use the addition and modulo to implement the shift and encode operations respectively.
+        decoded_num = str((int(element) - 3) % 10)
+        
+        #tack on the coded numbers to the string
+        decoded_password += decoded_num
+        
+    return decoded_password
+        
 
 
 def menu():
@@ -32,3 +50,4 @@ def menu():
             break
 
 menu()
+
